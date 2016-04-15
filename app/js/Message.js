@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Card from 'material-ui/lib/card/card';
-import CardHeader from 'material-ui/lib/card/card-header';
-import FlatButton from 'material-ui/lib/flat-button'
-import Dialog from 'material-ui/lib/dialog';
+import Card from 'material-ui/Card';
+import CardHeader from 'material-ui/Card/CardHeader';
+import FlatButton from 'material-ui/FlatButton'
+import Dialog from 'material-ui/Dialog';
 
 import EditMessage from './EditMessage'
 

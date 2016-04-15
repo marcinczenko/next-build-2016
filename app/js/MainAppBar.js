@@ -1,10 +1,16 @@
 import React from 'react'
 
-import AppBar from 'material-ui/lib/app-bar'
-import Popover from 'material-ui/lib/popover/popover';
-import PopoverAnimationFromTop from 'material-ui/lib/popover/popover-animation-from-top';
+// import AppBar from 'material-ui/lib/app-bar'
+
+import AppBar from 'material-ui/AppBar'
+// import Popover from 'material-ui/lib/popover/popover';
+import Popover from 'material-ui/Popover';
+import PopoverAnimationFromTop from 'material-ui/Popover/PopoverAnimationVertical';
+// import PopoverAnimationFromTop from 'material-ui/lib/popover/popover-animation-from-top';
 
 import Logout from './Logout'
+
+
 
 class MainAppBar extends React.Component {
     constructor(props) {

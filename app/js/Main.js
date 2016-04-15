@@ -5,6 +5,10 @@ import WhatNext from './WhatNext'
 
 import Firebase from 'firebase';
 
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+
+
 class Main extends React.Component {
 
     firebaseUsers = new Firebase('https://next-build-2016.firebaseio.com/users');
@@ -85,10 +89,12 @@ class Main extends React.Component {
     render() {
         
         return (
-            <div className="row">
-                <MainAppBar user={this.state.user} setUser={(user) => this.setUser(user)} />
-                <WhatNext user={this.state.user} setUser={(user) => this.setUser(user)} />
-            </div>
+            <MuiThemeProvider muiTheme={getMuiTheme()}>
+                <div className="row">
+                    <MainAppBar user={this.state.user} setUser={(user) => this.setUser(user)} />
+                    <WhatNext user={this.state.user} setUser={(user) => this.setUser(user)} />
+                </div>
+            </MuiThemeProvider>
         );
     }
 }

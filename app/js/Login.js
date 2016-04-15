@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import RaisedButton from 'material-ui/lib/raised-button';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import Rebase from 're-base';
 const base = Rebase.createClass('https://next-build-2016.firebaseio.com/');
