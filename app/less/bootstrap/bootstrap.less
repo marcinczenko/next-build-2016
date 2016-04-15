@@ -1,0 +1,48 @@
+/*!
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// Core variables and mixins
+@import "variables.less";
+@import "mixins.less";
+
+// Reset and dependencies
+@import "normalize.less";
+@import "print.less";
+
+// Core CSS
+// We only need one small thing from the original scaffolding, namely ".box-sizing" which
+// a rule which makes it so padding does not affect the final computed width of an element.
+// Read more: http://getbootstrap.com/getting-started/#third-box-sizing.
+
+// NOTE:
+// Original bootstrap imports "scaffolding.less" to take care for box sizing. Original "scaffolding.less" defines
+// the following:
+//
+//     * {
+//        .box-sizing(border-box);
+//     }
+//     *:before,
+//     *:after {
+//        .box-sizing(border-box);
+//     }
+//
+// Then, .box-sizing(@boxmodel) is defined in the "vendor-prefixes.less" file, where we read:
+//
+//     > All vendor mixins are deprecated as of v3.2.0 due to the introduction of
+//     > Autoprefixer in our Gruntfile. They have been removed in v4.
+//
+// Because we also use autoprefixer in our gulp file, we do not want to import "vendor-prefixes.less",
+// but then we also cannot use the box sizing rules from "scaffolding.less".
+//
+// Our solution is to add a custom file: box-sizing, where we just put Universal Box Sizing rule as
+// described in https://css-tricks.com/box-sizing/.
+
+@import "box-sizing.less";
+@import "grid.less";
+
+// Utility classes
+@import "utilities.less";
+@import "responsive-utilities.less";
