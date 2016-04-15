@@ -6,23 +6,25 @@ import AppBar from 'material-ui/AppBar'
 
 import MessageList from './MessageList'
 
+import Rebase from 're-base'
+
 class Main extends React.Component {
-    
+
+    rebase = Rebase.createClass('https://next-build-2016-test.firebaseio.com/');
+
     constructor() {
         super();
 
-        const messages = {
-            message1: {
-                title: 'Message 1'
-            },
-            message2: {
-                title: 'Message 2'
-            }
-        };
-
         this.state = {
-            messages: messages
+            messages: {}
         }
+    }
+    
+    componentWillMount() {
+        this.rebase.syncState('messages', {
+            context: this,
+            state: 'messages'
+        })
     }
 
     render() {
