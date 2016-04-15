@@ -7,8 +7,9 @@ import AppBar from 'material-ui/AppBar'
 import MessageList from './MessageList'
 
 class Main extends React.Component {
-
-    render() {
+    
+    constructor() {
+        super();
 
         const messages = {
             message1: {
@@ -18,6 +19,13 @@ class Main extends React.Component {
                 title: 'Message 2'
             }
         };
+
+        this.state = {
+            messages: messages
+        }
+    }
+
+    render() {
         
         return (
             <MuiThemeProvider muiTheme={getMuiTheme()}>
@@ -25,7 +33,7 @@ class Main extends React.Component {
                     <AppBar title="Next Build 2016"
                             showMenuIconButton={false}
                     />
-                    <MessageList messages={messages} />
+                    <MessageList messages={this.state.messages} />
                 </div>
             </MuiThemeProvider>
         );
