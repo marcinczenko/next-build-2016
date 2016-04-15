@@ -5,6 +5,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import AppBar from 'material-ui/AppBar'
 
 import MessageList from './MessageList'
+import Login from './Login'
+import Logout from './Logout'
 
 import Rebase from 're-base'
 
@@ -15,8 +17,13 @@ class Main extends React.Component {
     constructor() {
         super();
 
+        const user = {
+            uid: ''
+        };
+
         this.state = {
-            messages: {}
+            messages: {},
+            user: user
         }
     }
     
@@ -27,6 +34,25 @@ class Main extends React.Component {
         })
     }
 
+    setUser = (user) => {
+        this.setState({
+            user: user
+        })
+    };
+
+    renderBody() {
+        if (!this.state.user.uid) {
+            return <Login setUser={this.setUser} />
+        } else {
+            return (
+                <div>
+                    <MessageList messages={this.state.messages} />
+                    <Logout setUser={this.setUser} />
+                </div>
+            )
+        }
+    }
+
     render() {
         
         return (
@@ -35,7 +61,8 @@ class Main extends React.Component {
                     <AppBar title="Next Build 2016"
                             showMenuIconButton={false}
                     />
-                    <MessageList messages={this.state.messages} />
+                    { this.renderBody() }
+
                 </div>
             </MuiThemeProvider>
         );
