@@ -12,7 +12,7 @@ class MessageList extends React.Component {
             <div>
                 { Object.keys(messages).map((key) => {
                     const message = messages[key];
-                    return <Message title={message.title} key={key}/>
+                    return <Message title={message.title} user={this.props.user} key={key}/>
                 })}
             </div>
         )

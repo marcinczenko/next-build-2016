@@ -46,7 +46,7 @@ class Main extends React.Component {
         } else {
             return (
                 <div>
-                    <MessageList messages={this.state.messages} />
+                    <MessageList messages={this.state.messages} user={this.state.user} />
                     <Logout setUser={this.setUser} />
                 </div>
             )

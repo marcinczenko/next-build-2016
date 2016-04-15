@@ -1,9 +1,16 @@
 import React from 'react'
 import RaisedButton from 'material-ui/RaisedButton'
 
+import Rebase from 're-base'
+
 class Logout extends React.Component {
-    
+
+    rebase = Rebase.createClass('https://next-build-2016-test.firebaseio.com/');
+
     logoutHandler = () => {
+
+        this.rebase.unauth();
+
         this.props.setUser({
             uid: '',
             displayName: ''
