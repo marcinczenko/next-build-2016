@@ -5,7 +5,7 @@ import Rebase from 're-base'
 
 class Login extends React.Component {
 
-    rebase = Rebase.createClass('https://next-build-2016-test.firebaseio.com/');
+    rebase = Rebase.createClass('https://next-build-2016-t2.firebaseio.com/');
     
     authHandler = (error, authData) => {
         if (error) {
@@ -23,6 +23,10 @@ class Login extends React.Component {
 
     loginHandler = () => {
         this.rebase.authWithOAuthPopup('github', this.authHandler);
+        // this.props.setUser({
+        //     uid: 'fake user',
+        //     displayName: 'fake user name'
+        // })
     };
 
     render() {

@@ -73,6 +73,8 @@ gulp.task('default', ['bundle', 'html', 'less'], function() {
     server: 'dist',
     middleware : [ historyApiFallback() ],
     ghostMode: false,
-    browser: "google chrome"
+    browser: "google chrome",
+    port: 3007
+
   });
 });

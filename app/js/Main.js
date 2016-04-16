@@ -12,7 +12,8 @@ import Rebase from 're-base'
 
 class Main extends React.Component {
 
-    rebase = Rebase.createClass('https://next-build-2016-test.firebaseio.com/');
+    rebase = Rebase.createClass('https://next-build-2016-t2.firebaseio.com/');
+    ref = null;
 
     constructor() {
         super();
@@ -26,12 +27,32 @@ class Main extends React.Component {
             user: user
         }
     }
-    
-    componentWillMount() {
-        this.rebase.syncState('messages', {
-            context: this,
-            state: 'messages'
-        })
+
+    authCallback = (authData) => {
+        if (authData) {
+            console.log('authenticated');
+            if (!this.ref){
+                this.ref = this.rebase.bindToState('messages', {
+                    context: this,
+                    state: 'messages'
+                });
+            }
+        } else {
+            if (this.ref) {
+                this.rebase.removeBinding(this.ref);
+                this.ref = null;
+            }
+            console.log('non-authenticated');
+
+        }
+    };
+
+    componentDidMount() {
+        this.rebase.onAuth(this.authCallback);
+    }
+
+    componentWillUnmount() {
+        this.rebase.offAuth(this.authCallback);
     }
 
     setUser = (user) => {
